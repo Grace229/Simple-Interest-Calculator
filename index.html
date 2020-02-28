@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Interest</title>
+   
+</head>
+<script src="vue.js"></script>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+<body style="background-color: white;" >
+<div id="app">
+    <div style="width: 50%;background-color: #267cbfbd;height: 80px;float: left;border-radius: 10px 0px;font-size: 35px;
+    text-align: right;color: white;font-weight: bolder;">
+        <p>SIMPLE INTEREST</p>
+    </div>
+    <div style="width: 50%;background-color: #1B2BE4;height: 80px;float: right;border-radius: 10px 0px;font-size: 35px;
+    opacity: .8;font-weight: bolder;color: white;">
+        <p>CALCULATOR</p>
+
+    </div>
+
+<br><br>
+
+
+
+
+<form>
+    <br>
+    <label>Principal:</label> 
+    <input type="number" v-model="principal" id="principal" placeholder="principal"><br><br>
+    <label>Rate:</label> 
+    <input type="number" v-model="rate" id="rate" placeholder="rate" step=".01"><br><br>
+    <label>Time:</label> 
+    <input type="number" v-model="time" id="time" placeholder="Time"  @keydown="simpleInterest" ><br><br>
+    {{ (this.principal * this.rate * this.time) / 100 }}
+  
+</form>
+</div>
+
+<script>
+ 
+    let app = new Vue({
+    el:"#app",
+
+    data () {
+      return {
+        principal: "",
+        rate: "",
+        time: "",
+        result: ""
+      }
+    },
+    methods: {
+      simpleInterest: function(){
+        this.result = (this.principal * this.rate * this.time) / 100
+      }
+      }
+    });  
+    
+    
+    
+    </script>
+     <style>
+        form {
+             background-color: #1B2BE4;
+             border-radius: 25px;
+             opacity: .8;
+             clear: both;
+             margin-top: 100px;
+             height: 500px;
+         }
+         label{
+             margin-left: 15px;
+             color: white;
+         }
+         #result{
+           margin-left: 15px;  
+           color: white;
+         }
+     </style>
+   
+    
+ 
+ </script>   
+</body>
+</html>
